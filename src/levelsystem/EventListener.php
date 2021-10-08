@@ -21,21 +21,21 @@ class EventListener implements Listener{
         if ($blockid !== 56 or $blockid !== 129) {
             $this->main->addExp($player, rand(10, 20));
             if ($this->main->getExp($player) >= $this->main->limitExp($player)) {
-                $this->main->levelUp($player);
                 $exp = $this->main->getExp($player);
                 $limit = $this->main->limitExp($player);
                     $result = $exp - $limit;
                     $this->main->setExp($player, $result);
+                    $this->main->levelUp($player);
                     $player->sendMessage("Your level now is " . $this->main->getLevel($player));
             }
         } else {
             $this->main->addExp($player, rand(30, 50));
             if ($this->main->getExp($player) >= $this->main->limitExp($player)) {
-                $this->main->levelUp($player);
                 $exp = $this->main->getExp($player);
                 $limit = $this->main->limitExp($player);
                 $result = $exp - $limit;
                 $this->main->setExp($player, $result);
+                $this->main->levelUp($player);
                 $player->sendMessage("Your level now is" . $this->main->getLevel($player));
             }
         }
